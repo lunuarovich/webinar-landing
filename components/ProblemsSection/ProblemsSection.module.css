@@ -1,0 +1,126 @@
+.section {
+  background: #ffffff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  border: 1px solid #f1f5f9;
+  border-radius: var(--border-radius);
+  background: var(--bg-warm);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(224, 86, 104, 0.3);
+  box-shadow: var(--shadow-md);
+}
+
+.quoteIcon {
+  margin-bottom: 15px;
+  color: var(--primary);
+  opacity: 0.3;
+}
+
+.quoteText {
+  margin-bottom: 25px;
+  color: #334155;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.visual {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.avatar {
+  display: flex;
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+}
+
+.avatarArt {
+  color: #64748b;
+  background: #f1f5f9;
+}
+
+.avatarBoundaries {
+  color: #d97706;
+  background: #fef3c7;
+}
+
+.avatarBody {
+  color: #ef4444;
+  background: #fee2e2;
+}
+
+.label {
+  color: var(--secondary);
+  font-family: var(--font-montserrat), Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.tag {
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.cta {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  border: 2px dashed rgba(224, 86, 104, 0.3);
+  border-radius: 24px;
+  background: linear-gradient(135deg, #fef2f2, #fff1f2);
+  text-align: center;
+}
+
+.cta .recognize {
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.cta h3 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.cta > p:not(.recognize) {
+  margin-bottom: 25px;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta {
+    padding: 30px 20px;
+  }
+}

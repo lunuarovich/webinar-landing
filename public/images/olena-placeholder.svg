@@ -1,0 +1,10 @@
+<svg width="640" height="800" viewBox="0 0 640 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="800" rx="48" fill="#F8FAFC"/>
+  <rect x="28" y="28" width="584" height="744" rx="36" stroke="#E2E8F0" stroke-width="4" stroke-dasharray="16 16"/>
+  <circle cx="320" cy="286" r="96" fill="#FBEBDD"/>
+  <path d="M160 610C160 504 231.634 418 320 418C408.366 418 480 504 480 610V666H160V610Z" fill="#FBEBDD"/>
+  <circle cx="320" cy="282" r="54" fill="#E05668" opacity="0.18"/>
+  <path d="M296 282C296 268.745 306.745 258 320 258C333.255 258 344 268.745 344 282C344 295.255 333.255 306 320 306C306.745 306 296 295.255 296 282Z" fill="#E05668" opacity="0.7"/>
+  <text x="320" y="708" text-anchor="middle" fill="#2B3A4A" font-family="Arial, sans-serif" font-size="30" font-weight="700">Фото Олени</text>
+  <text x="320" y="748" text-anchor="middle" fill="#64748B" font-family="Arial, sans-serif" font-size="20">Замініть цей файл на потрібне фото</text>
+</svg>

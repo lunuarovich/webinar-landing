@@ -1,0 +1,91 @@
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 12px 0;
+  color: #ffffff;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.title strong {
+  color: #f87171;
+  font-weight: 700;
+}
+
+.clock {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.box {
+  display: grid;
+  min-width: 55px;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.number {
+  color: #ffffff;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.label {
+  color: #94a3b8;
+  font-size: 0.65rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.started {
+  color: #4ade80;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .bar {
+    position: static;
+  }
+
+  .wrapper {
+    gap: 10px;
+  }
+
+  .title {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .clock {
+    gap: 6px;
+  }
+
+  .box {
+    min-width: 48px;
+    padding-inline: 7px;
+  }
+}
