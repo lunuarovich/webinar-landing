@@ -1,13 +1,22 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ClockIcon } from '@/components/icons/Icons';
 import { Container } from '@/components/ui/Container';
 import styles from './CountdownBar.module.css';
 
 const WEBINAR_START = '2026-09-10T19:00:00+03:00';
+const TARGET_TIME = new Date(WEBINAR_START).getTime();
 
-function getTimeLeft(targetTime: number) {
+type TimeLeft = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+  isStarted: boolean;
+};
+
+function getTimeLeft(targetTime: number): TimeLeft {
   const difference = Math.max(targetTime - Date.now(), 0);
 
   return {
@@ -20,16 +29,21 @@ function getTimeLeft(targetTime: number) {
 }
 
 export function CountdownBar() {
-  const targetTime = useMemo(() => new Date(WEBINAR_START).getTime(), []);
-  const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(targetTime));
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
-    const intervalId = window.setInterval(() => {
-      setTimeLeft(getTimeLeft(targetTime));
-    }, 1000);
+    const updateTimeLeft = () => {
+      setTimeLeft(getTimeLeft(TARGET_TIME));
+    };
 
-    return () => window.clearInterval(intervalId);
-  }, [targetTime]);
+    updateTimeLeft();
+
+    const intervalId = window.setInterval(updateTimeLeft, 1000);
+
+    return () => {
+      window.clearInterval(intervalId);
+    };
+  }, []);
 
   return (
     <aside className={styles.bar} aria-label="Відлік до початку вебінару">
@@ -37,17 +51,21 @@ export function CountdownBar() {
         <div className={styles.wrapper}>
           <p className={styles.title}>
             <ClockIcon width="18" height="18" aria-hidden="true" />
-            До початку вебінару залишилось: <strong>10 вересня, 19:00</strong>
+            До початку вебінару залишилось:{' '}
+            <strong>10 вересня, 19:00</strong>
           </p>
 
-          {timeLeft.isStarted ? (
+          {timeLeft?.isStarted ? (
             <p className={styles.started}>Вебінар розпочався!</p>
           ) : (
-            <div className={styles.clock} aria-label="Залишок часу до вебінару">
-              <TimeBox value={timeLeft.days} label="дні" />
-              <TimeBox value={timeLeft.hours} label="години" />
-              <TimeBox value={timeLeft.minutes} label="хвилини" />
-              <TimeBox value={timeLeft.seconds} label="секунди" />
+            <div
+              className={styles.clock}
+              aria-label="Залишок часу до вебінару"
+            >
+              <TimeBox value={timeLeft?.days ?? 0} label="дні" />
+              <TimeBox value={timeLeft?.hours ?? 0} label="години" />
+              <TimeBox value={timeLeft?.minutes ?? 0} label="хвилини" />
+              <TimeBox value={timeLeft?.seconds ?? 0} label="секунди" />
             </div>
           )}
         </div>
@@ -56,10 +74,18 @@ export function CountdownBar() {
   );
 }
 
-function TimeBox({ value, label }: { value: number; label: string }) {
+type TimeBoxProps = {
+  value: number;
+  label: string;
+};
+
+function TimeBox({ value, label }: TimeBoxProps) {
   return (
     <span className={styles.box}>
-      <span className={styles.number}>{String(value).padStart(2, '0')}</span>
+      <span className={styles.number}>
+        {String(value).padStart(2, '0')}
+      </span>
+
       <span className={styles.label}>{label}</span>
     </span>
   );
