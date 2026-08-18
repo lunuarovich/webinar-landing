@@ -53,26 +53,24 @@ export function HeroSection() {
               <div className={styles.glow} />
 
               <div className={styles.heart}>
-                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                  className={styles.heartIcon}
+                  viewBox="0 0 200 200"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path
-                    d="M100 170C100 170 170 120 170 70C170 42.3858 147.614 20 120 20C103.541 20 89.043 27.9622 80 40.2332C70.957 27.9622 56.4587 20 40 20C12.3858 20 -10 42.3858 -10 70C-10 120 100 170 100 170Z"
-                    fill="url(#heartGradient)"
-                    transform="translate(10, 10) scale(0.9)"
+                    className={styles.heartShape}
+                    d="M93.5 149.5C90.8 146.9 54.3 113.2 44.1 102.3 26.5 83.4 26 54.7 43.2 39.4 58.3 26 81.2 29.7 93.5 47.7 105.8 29.7 128.7 26 143.8 39.4 161 54.7 160.5 83.4 142.9 102.3 132.7 113.2 96.2 146.9 93.5 149.5Z"
+                    fill="#f33361"
                   />
-                  <circle cx="100" cy="85" r="18" fill="#ffffff" opacity="0.9" />
-                  <path d="M100 78V92M93 85H107" stroke="#e05668" strokeWidth="3" strokeLinecap="round" />
-                  <defs>
-                    <linearGradient id="heartGradient" x1="0" y1="20" x2="200" y2="170" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#ff7e5f" />
-                      <stop offset="1" stopColor="#e05668" />
-                    </linearGradient>
-                  </defs>
-                </svg>
-              </div>
 
-              <div className={styles.key}>
-                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#f39c12" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 2l-2 2m-2 2l-2 2m2-2l2 2m-4 0l2 2M5 11a7 7 0 1 1 11.23-5.23L21 11v3h-3v2h-2v2h-3l-2-2" />
+                  <g className={styles.keyShape}>
+                    <circle cx="132" cy="112" r="19" fill="#fff8f1" stroke="#f39c12" strokeWidth="8" />
+                    <path d="M146 126 170 150" stroke="#f39c12" strokeWidth="8" strokeLinecap="round" />
+                    <path d="M161 149 175 163" stroke="#f39c12" strokeWidth="8" strokeLinecap="round" />
+                    <path d="M170 150 177 143" stroke="#f39c12" strokeWidth="8" strokeLinecap="round" />
+                  </g>
                 </svg>
               </div>
 

@@ -104,15 +104,27 @@
   z-index: 2;
   width: 180px;
   height: 180px;
+  filter: drop-shadow(0 16px 28px rgba(224, 86, 104, 0.18));
+  transform-origin: center;
+  animation: heartFloat 3.6s ease-in-out infinite;
 }
 
-.key {
-  position: absolute;
-  top: 25%;
-  left: -30px;
-  z-index: 3;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
-  animation: keyUnlock 3s infinite ease-in-out;
+.heartIcon {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.heartShape {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: heartBeat 2.8s ease-in-out infinite;
+}
+
+.keyShape {
+  transform-box: fill-box;
+  transform-origin: 30% 30%;
+  animation: keyUnlock 2.8s ease-in-out infinite;
 }
 
 .emotion {
@@ -189,13 +201,42 @@
   }
 }
 
+@keyframes heartFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-1.5deg);
+  }
+}
+
+@keyframes heartBeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  18% {
+    transform: scale(1.06);
+  }
+  32% {
+    transform: scale(0.98);
+  }
+  46% {
+    transform: scale(1.03);
+  }
+}
+
 @keyframes keyUnlock {
   0%,
   100% {
     transform: translate(0, 0) rotate(0deg);
   }
-  50% {
-    transform: translate(25px, -10px) rotate(-25deg);
+  45% {
+    transform: translate(4px, -3px) rotate(-8deg);
+  }
+  65% {
+    transform: translate(1px, 1px) rotate(4deg);
   }
 }
 
